@@ -2,9 +2,17 @@
 
 Nukes the project's `node_modules` directory and reinstalls latest dependencies from `package.json`.
 
+# Rationale
+
+Often times you just want to delete all node modules and reinstall all dependencies from scratch with latest version.
+If you recognize yourself in this description, then `gluttony` is for you.
+
+Invoke on any directory containing a `package.json`, and it will remove the `node_modules` directory if exists, and
+reinstall the _latest version_ of all dependencies via `npm`.
+
 # Usage
 
-Install
+Install:
 
 ```bash
 npm install -g gluttony
