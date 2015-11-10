@@ -3,36 +3,21 @@
 const  path = require('path'),
          fs = require('fs'),
      rimraf = require('rimraf'),
-        npm = require('npm'),
+       exec = require('child_process').exec,
        keys = Object.keys || require('object-keys');
 
 function reinstall(PACKAGE_JSON, dir, callback) {
-  const DEPS = PACKAGE_JSON.dependencies && keys(PACKAGE_JSON.dependencies),
-    DEV_DEPS = PACKAGE_JSON.devDependencies && keys(PACKAGE_JSON.devDependencies);
+  const DEPS = PACKAGE_JSON.dependencies && keys(PACKAGE_JSON.dependencies) || [],
+    DEV_DEPS = PACKAGE_JSON.devDependencies && keys(PACKAGE_JSON.devDependencies) || [],
+   PEER_DEPS = PACKAGE_JSON.peerDependencies && keys(PACKAGE_JSON.peerDependencies) || [];
 
-  npm.load({}, function (err) {
+  exec('cd ' + dir + ' && npm install ' + DEPS.concat(DEV_DEPS).concat(PEER_DEPS).join(' '), function(err, stdout, stderr) {
     if (err) {
-      console.log(err);
       callback(err);
       return;
     }
-    var i = 0;
-    [DEPS, DEV_DEPS]
-      .filter(function(deps){return deps;})
-      .forEach(function(deps, index, array){
-        // FIXME: uh-oh, safe to use?
-        npm.prefix = dir;
-        npm.commands.install(deps, function (err, data) {
-          if (err) {
-            callback(err);
-            return;
-          }
-          if (++i === array.length) {
-            callback(null);
-          }
-          console.log('\nYay! Dependencies reinstalled from scratch.');
-        });
-      });
+    callback(null);
+    console.log('\nYay! Dependencies reinstalled from scratch.');
   });
 }
 
