@@ -23,34 +23,37 @@ function reinstall() {
           if (err) {
             return;
           }
-          console.log('Yay! Dependencies reinstalled from scratch.');
+          console.log('\nYay! Dependencies reinstalled from scratch.');
         });
       }
     });
   });
 }
 
-fs.stat(NODE_MODULES, function(err, stats) {
-  if (err) {
-    switch (err.code) {
-      case 'ENOENT':
-        // node_modules doesn't exist: just reinstall
-        reinstall();
-        break;
-    }
-    return;
-  }
-  // call rm -rf on the NODE_MODULES dir
-  rimraf(NODE_MODULES, function(err) {
+exports.execute = function() {
+  fs.stat(NODE_MODULES, function(err, stats) {
     if (err) {
-      // switch (err.code) {
-      //   case 'ENOENT':
-      //     console.log('');
-      //     break;
-      // }
-      console.log(err);
+      switch (err.code) {
+        case 'ENOENT':
+          // node_modules doesn't exist: just reinstall
+          reinstall();
+          break;
+      }
       return;
     }
-    reinstall();
+    console.log('Removing existing dependencies...');
+    // call rm -rf on the NODE_MODULES dir
+    rimraf(NODE_MODULES, function(err) {
+      if (err) {
+        // switch (err.code) {
+        //   case 'ENOENT':
+        //     console.log('');
+        //     break;
+        // }
+        console.log(err);
+        return;
+      }
+      reinstall();
+    });
   });
-});
+};
