@@ -31,4 +31,6 @@ gluttony
 
 # License
 
-MIT
+[MIT](http://opensource.org/licenses/MIT)
+
+Copyright (c) 2015 Claudio Procida

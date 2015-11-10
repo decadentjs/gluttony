@@ -56,3 +56,24 @@ t.test('package_no_node_modules', function (t) {
     t.end();
   });
 });
+
+t.test('dev_and_optional_deps', function (t) {
+  // Fine to use in tests, izs don't stare at me that way >__<"
+  rimraf.sync(__dirname + '/dev_and_optional_deps/node_modules');
+
+  t.ok(fs.statSync(__dirname + '/dev_and_optional_deps').isDirectory());
+  t.throws(function(){
+    fs.statSync(__dirname + '/dev_and_optional_deps/node_modules');
+  });
+
+  gluttony.execute(__dirname + '/dev_and_optional_deps', function() {
+    t.ok(fs.statSync(__dirname + '/dev_and_optional_deps').isDirectory());
+    t.ok(fs.statSync(__dirname + '/dev_and_optional_deps/node_modules').isDirectory());
+    t.ok(fs.statSync(__dirname + '/dev_and_optional_deps/node_modules/object-keys').isDirectory());
+    t.ok(fs.statSync(__dirname + '/dev_and_optional_deps/node_modules/path').isDirectory());
+    t.ok(fs.statSync(__dirname + '/dev_and_optional_deps/node_modules/rimraf').isDirectory());
+
+    t.end();
+  });
+
+});

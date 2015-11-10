@@ -9,9 +9,9 @@ const  path = require('path'),
 function reinstall(PACKAGE_JSON, dir, callback) {
   const DEPS = PACKAGE_JSON.dependencies && keys(PACKAGE_JSON.dependencies) || [],
     DEV_DEPS = PACKAGE_JSON.devDependencies && keys(PACKAGE_JSON.devDependencies) || [],
-   PEER_DEPS = PACKAGE_JSON.peerDependencies && keys(PACKAGE_JSON.peerDependencies) || [];
+    OPT_DEPS = PACKAGE_JSON.optionalDependencies && keys(PACKAGE_JSON.optionalDependencies) || [];
 
-  exec('cd ' + dir + ' && npm install ' + DEPS.concat(DEV_DEPS).concat(PEER_DEPS).join(' '), function(err, stdout, stderr) {
+  exec('cd ' + dir + ' && npm install ' + DEPS.concat(DEV_DEPS).concat(OPT_DEPS).join(' '), function(err, stdout, stderr) {
     if (err) {
       callback(err);
       return;

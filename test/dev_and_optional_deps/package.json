@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "object-keys": "^1.0.9"
+  },
+  "devDependencies": {
+    "path": "^0.12.7",
+    "rimraf": "^2.4.3"
+  },
+  "optionalDependencies": {
+    "tape": "*"
+  }
+}
