@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/isaacs/gluttony.svg?branch=master)](https://travis-ci.org/isaacs/gluttony)
+[![Dependency Status](https://david-dm.org/isaacs/gluttony.svg)](https://david-dm.org/isaacs/gluttony)
+[![devDependency Status](https://david-dm.org/isaacs/gluttony/dev-status.svg)](https://david-dm.org/isaacs/gluttony#info=devDependencies)
+
+
 # gluttony
 
 Nukes the project's `node_modules` directory and reinstalls latest dependencies from `package.json`.
