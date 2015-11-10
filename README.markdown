@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/isaacs/gluttony.svg?branch=master)](https://travis-ci.org/isaacs/gluttony)
-[![Dependency Status](https://david-dm.org/isaacs/gluttony.svg)](https://david-dm.org/isaacs/gluttony)
-[![devDependency Status](https://david-dm.org/isaacs/gluttony/dev-status.svg)](https://david-dm.org/isaacs/gluttony#info=devDependencies)
+[![Build Status](https://travis-ci.org/decadentjs/gluttony.svg?branch=master)](https://travis-ci.org/decadentjs/gluttony)
+[![Dependency Status](https://david-dm.org/decadentjs/gluttony.svg)](https://david-dm.org/decadentjs/gluttony)
+[![devDependency Status](https://david-dm.org/decadentjs/gluttony/dev-status.svg)](https://david-dm.org/decadentjs/gluttony#info=devDependencies)
 
 
 # gluttony
