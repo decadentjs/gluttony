@@ -4,17 +4,40 @@
   "description": "Nukes the project's node_modules directory and reinstalls latest dependencies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test/*.js"
   },
   "bin": {
     "gluttony": "./bin/gluttony"
   },
-  "author": "",
+  "author": "Claudio Procida",
   "license": "MIT",
   "dependencies": {
     "object-keys": "^1.0.9",
     "path": "^0.12.7",
-    "pjson": "^1.0.7",
     "rimraf": "^2.4.3"
-  }
+  },
+  "devDependencies": {
+    "cpr": "^0.4.3",
+    "tap": "^2.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/decadentjs/gluttony.git"
+  },
+  "keywords": [
+    "reinstall",
+    "npm",
+    "dependencies",
+    "dev-dependencies",
+    "peer-dependencies",
+    "node",
+    "modules"
+  ],
+  "bugs": {
+    "url": "https://github.com/decadentjs/gluttony/issues"
+  },
+  "homepage": "https://github.com/decadentjs/gluttony#readme"
 }
