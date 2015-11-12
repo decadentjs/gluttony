@@ -1,3 +1,4 @@
+[![npm Version](https://img.shields.io/npm/v/gluttony.svg)](https://www.npmjs.com/package/gluttony)
 [![Build Status](https://travis-ci.org/decadentjs/gluttony.svg?branch=master)](https://travis-ci.org/decadentjs/gluttony)
 [![Dependency Status](https://david-dm.org/decadentjs/gluttony.svg)](https://david-dm.org/decadentjs/gluttony)
 [![devDependency Status](https://david-dm.org/decadentjs/gluttony/dev-status.svg)](https://david-dm.org/decadentjs/gluttony#info=devDependencies)
